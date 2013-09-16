@@ -62,7 +62,7 @@ def treetagger(text):
     treetagger_cmd = TREETAGGER+'/cmd/tree-tagger-dutch-utf8'
     tt_proc = subprocess.Popen(treetagger_cmd,stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     tt_out, tt_err = tt_proc.communicate(text.encode('utf-8'))
-    print>>sys.stderr,'Output error TreeTagger:',tt_err
+    #print>>sys.stderr,'Output error TreeTagger:',tt_err
     num_sent = 1
     num_token = 0
     for line in tt_out.splitlines():

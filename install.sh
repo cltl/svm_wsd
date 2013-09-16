@@ -17,7 +17,7 @@ rm $zip_name
 folder_name=`ls -1 | head -1`
 mv $folder_name libsvm
 cd libsvm/python
-make > /dev/null
+make > /dev/null 2> /dev/null
 echo LIBSVM installed correctly lib/libsvm
 
 echo 'Downloading and installing TREETAGGER from http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger'
