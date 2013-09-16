@@ -24,7 +24,13 @@ echo 'Downloading and installing TREETAGGER from http://www.cis.uni-muenchen.de/
 cd ../../
 mkdir treetagger
 cd treetagger
-wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-linux-3.2.tar.gz 2> /dev/null
+
+if [[ `uname` == 'Linux' ]]; then
+  wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-linux-3.2.tar.gz 2> /dev/null
+elif [[ `uname` == 'Darwin' ]]; then
+  wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-MacOSX-3.2-intel.tar.gz 2> /dev/null
+fi
+
 wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tagger-scripts.tar.gz 2> /dev/null
 wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/install-tagger.sh 2> /dev/null
 wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/dutch-par-linux-3.2-utf8.bin.gz 2> /dev/null
