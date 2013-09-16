@@ -1,0 +1,39 @@
+Project: DutchSemCor
+Project number: 380-70-011
+Funded by the Dutch National Science Foundation (NWO).
+website: http://www2.let.vu.nl/oz/cltl/dutchsemcor/index.html
+Start date: September, 2009
+End date: August, 2012
+
+This svm_wsd is free software; you can redistribute it and/or modify it
+under the terms of version 3 of the GNU General Public License as published
+by the Free Software Foundation. It should be shipped in the top
+level directory as the file COPYING-GPL.TXT.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License, version
+3, along with this program in the file COPYING-GPL.TXT; if not, write to the Free
+Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+02110-1301, USA.
+                                    -*-
+If you use svm_wsd in your scientific research, please cite it
+appropriately as you would cite a journal or a book. This includes papers
+published in regular or electronic journals, usage of svm_wsd as a back-end to a
+database that is accessible via a web interface, or inclusion of svm_wsd in a
+larger framework of software that is distributed for other people for
+scientific use.  Include the following citation:
+
+	Vossen P., A. Gorog, R. Izquierdo, A. van den Bosch
+    	"DutchSemCor: Targeting the ideal sense-tagged corpus", 
+    	in: Proceedings of the 8th international conference on Language Resources and Evaluation (LREC2012), 
+    	N. Calzolari, K. Choukri, T. Declerck, M. Ugur Dogan, B. Maegaard, J. Mariani, J. Odijk, S. Piperidis (Eds.), 
+    	Publ. European Language Resources Association (ELRA), 
+    	ISBN 978-2-9517408-7-7,p. 584-589, Istanbul, Turkey, May 21-27, 2012. 
+
+The program svm_wsd is held copyright by Ruben Izquierdo and the VU University of Amsterdam.
+
+
