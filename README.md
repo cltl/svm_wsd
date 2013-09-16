@@ -48,7 +48,7 @@ In summary:
 ````shell
 $ git clone git@github.com:cltl/svm_wsd.git
 $ cd svm_wsd
-$ sh install.sh
+$ . install.sh
 ````
 
 Usage

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ############################################################
 # Author:   Ruben Izquierdo Bevia ruben.izquierdobevia@vu.nl
@@ -24,11 +24,10 @@ echo 'Downloading and installing TREETAGGER from http://www.cis.uni-muenchen.de/
 cd ../../
 mkdir treetagger
 cd treetagger
-
 if [[ `uname` == 'Linux' ]]; then
-  wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-linux-3.2.tar.gz 2> /dev/null
+  wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-linux-3.2.tar.gz 2> /dev/null;
 elif [[ `uname` == 'Darwin' ]]; then
-  wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-MacOSX-3.2-intel.tar.gz 2> /dev/null
+  wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-MacOSX-3.2-intel.tar.gz 2> /dev/null;
 fi
 
 wget http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tagger-scripts.tar.gz 2> /dev/null
