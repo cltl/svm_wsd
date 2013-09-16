@@ -43,6 +43,13 @@ To install this program you have to follow 2 steps:
 - 1) Download/clone this repository
 - 2) Go the folder and run the install.sh script, which will install libsvm, treetagger and the models for WSD.
 
+In summary:
+
+````shell
+$ git clone git@github.com:cltl/svm_wsd.git
+$ cd svm_wsd
+$ sh install.sh
+````
 
 Usage
 -----
