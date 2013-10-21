@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NAF xml:lang="nl">
+  <kafHeader>
+    <linguisticProcessors layer="text">
+      <lp name="TreeTagger" timestamp="2013-10-21T16:57:56CEST" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp name="TreeTagger" timestamp="2013-10-21T16:57:56CEST" version="1.0"/>
+    </linguisticProcessors>
+  </kafHeader>
+  <text>
+    <wf para="1" sent="1" id="w_1">Filosofie</wf>
+    <wf para="1" sent="1" id="w_2">kan</wf>
+    <wf para="1" sent="1" id="w_3">ruwweg</wf>
+    <wf para="1" sent="1" id="w_4">ingedeeld</wf>
+    <wf para="1" sent="1" id="w_5">worden</wf>
+    <wf para="1" sent="1" id="w_6">naar</wf>
+    <wf para="1" sent="1" id="w_7">geografische</wf>
+    <wf para="1" sent="1" id="w_8">en</wf>
+    <wf para="1" sent="1" id="w_9">culturele</wf>
+    <wf para="1" sent="1" id="w_10">regio's</wf>
+    <wf para="1" sent="1" id="w_11">.</wf>
+    <wf para="1" sent="2" id="w_12">De</wf>
+    <wf para="1" sent="2" id="w_13">term</wf>
+    <wf para="1" sent="2" id="w_14">"</wf>
+    <wf para="1" sent="2" id="w_15">filosofie</wf>
+    <wf para="1" sent="2" id="w_16">"</wf>
+    <wf para="1" sent="2" id="w_17">in</wf>
+    <wf para="1" sent="2" id="w_18">een</wf>
+    <wf para="1" sent="2" id="w_19">Europese</wf>
+    <wf para="1" sent="2" id="w_20">of</wf>
+    <wf para="1" sent="2" id="w_21">Amerikaanse</wf>
+    <wf para="1" sent="2" id="w_22">academische</wf>
+    <wf para="1" sent="2" id="w_23">context</wf>
+    <wf para="1" sent="2" id="w_24">refereert</wf>
+    <wf para="1" sent="2" id="w_25">in</wf>
+    <wf para="1" sent="2" id="w_26">het</wf>
+    <wf para="1" sent="2" id="w_27">algemeen</wf>
+    <wf para="1" sent="2" id="w_28">aan</wf>
+    <wf para="1" sent="2" id="w_29">de</wf>
+    <wf para="1" sent="2" id="w_30">filosofische</wf>
+    <wf para="1" sent="2" id="w_31">tradities</wf>
+    <wf para="1" sent="2" id="w_32">van</wf>
+    <wf para="1" sent="2" id="w_33">de</wf>
+    <wf para="1" sent="2" id="w_34">westerse</wf>
+    <wf para="1" sent="2" id="w_35">beschaving</wf>
+    <wf para="1" sent="2" id="w_36">,</wf>
+    <wf para="1" sent="2" id="w_37">soms</wf>
+    <wf para="1" sent="2" id="w_38">ook</wf>
+    <wf para="1" sent="2" id="w_39">de</wf>
+    <wf para="1" sent="2" id="w_40">westerse</wf>
+    <wf para="1" sent="2" id="w_41">filosofie</wf>
+    <wf para="1" sent="2" id="w_42">genoemd</wf>
+    <wf para="1" sent="2" id="w_43">.</wf>
+    <wf para="1" sent="3" id="w_44">In</wf>
+    <wf para="1" sent="3" id="w_45">het</wf>
+    <wf para="1" sent="3" id="w_46">westen</wf>
+    <wf para="1" sent="3" id="w_47">wordt</wf>
+    <wf para="1" sent="3" id="w_48">de</wf>
+    <wf para="1" sent="3" id="w_49">term</wf>
+    <wf para="1" sent="3" id="w_50">oosterse</wf>
+    <wf para="1" sent="3" id="w_51">filosofie</wf>
+    <wf para="1" sent="3" id="w_52">meestal</wf>
+    <wf para="1" sent="3" id="w_53">gebruikt</wf>
+    <wf para="1" sent="3" id="w_54">als</wf>
+    <wf para="1" sent="3" id="w_55">omvattende</wf>
+    <wf para="1" sent="3" id="w_56">term</wf>
+    <wf para="1" sent="3" id="w_57">om</wf>
+    <wf para="1" sent="3" id="w_58">de</wf>
+    <wf para="1" sent="3" id="w_59">filosofische</wf>
+    <wf para="1" sent="3" id="w_60">tradities</wf>
+    <wf para="1" sent="3" id="w_61">van</wf>
+    <wf para="1" sent="3" id="w_62">Azië</wf>
+    <wf para="1" sent="3" id="w_63">en</wf>
+    <wf para="1" sent="3" id="w_64">het</wf>
+    <wf para="1" sent="3" id="w_65">oosten</wf>
+    <wf para="1" sent="3" id="w_66">aan</wf>
+    <wf para="1" sent="3" id="w_67">te</wf>
+    <wf para="1" sent="3" id="w_68">duiden</wf>
+    <wf para="1" sent="3" id="w_69">.</wf>
+    <wf para="1" sent="4" id="w_70">Hieronder</wf>
+    <wf para="1" sent="4" id="w_71">valt</wf>
+    <wf para="1" sent="4" id="w_72">de</wf>
+    <wf para="1" sent="4" id="w_73">filosofie</wf>
+    <wf para="1" sent="4" id="w_74">die</wf>
+    <wf para="1" sent="4" id="w_75">afkomstig</wf>
+    <wf para="1" sent="4" id="w_76">is</wf>
+    <wf para="1" sent="4" id="w_77">uit</wf>
+    <wf para="1" sent="4" id="w_78">India</wf>
+    <wf para="1" sent="4" id="w_79">en</wf>
+    <wf para="1" sent="4" id="w_80">China</wf>
+    <wf para="1" sent="4" id="w_81">.</wf>
+    <wf para="1" sent="5" id="w_82">Het</wf>
+    <wf para="1" sent="5" id="w_83">artikel</wf>
+    <wf para="1" sent="5" id="w_84">Geschiedenis</wf>
+    <wf para="1" sent="5" id="w_85">van</wf>
+    <wf para="1" sent="5" id="w_86">de</wf>
+    <wf para="1" sent="5" id="w_87">filosofie</wf>
+    <wf para="1" sent="5" id="w_88">biedt</wf>
+    <wf para="1" sent="5" id="w_89">een</wf>
+    <wf para="1" sent="5" id="w_90">historisch</wf>
+    <wf para="1" sent="5" id="w_91">overzicht</wf>
+    <wf para="1" sent="5" id="w_92">van</wf>
+    <wf para="1" sent="5" id="w_93">filosofische</wf>
+    <wf para="1" sent="5" id="w_94">tradities</wf>
+    <wf para="1" sent="5" id="w_95">in</wf>
+    <wf para="1" sent="5" id="w_96">verschillende</wf>
+    <wf para="1" sent="5" id="w_97">culturen</wf>
+    <wf para="1" sent="5" id="w_98">.</wf>
+  </text>
+  <terms>
+    <term lemma="filosofie" morphofeat="nounsg" pos="N" id="t_1" type="open">
+      <span>
+        <target id="w_1"/>
+      </span>
+    </term>
+    <term lemma="kunnen" morphofeat="verbpressg" pos="V" id="t_2" type="open">
+      <span>
+        <target id="w_2"/>
+      </span>
+    </term>
+    <term lemma="ruwweg" morphofeat="adv" pos="A" id="t_3" type="open">
+      <span>
+        <target id="w_3"/>
+      </span>
+    </term>
+    <term lemma="indelen" morphofeat="verbpapa" pos="V" id="t_4" type="open">
+      <span>
+        <target id="w_4"/>
+      </span>
+    </term>
+    <term lemma="worden" morphofeat="verbprespl" pos="V" id="t_5" type="open">
+      <span>
+        <target id="w_5"/>
+      </span>
+    </term>
+    <term lemma="naar" morphofeat="prep" pos="P" id="t_6" type="close">
+      <span>
+        <target id="w_6"/>
+      </span>
+    </term>
+    <term lemma="geografisch" morphofeat="adj" pos="G" id="t_7" type="open">
+      <span>
+        <target id="w_7"/>
+      </span>
+    </term>
+    <term lemma="en" morphofeat="conjcoord" pos="C" id="t_8" type="close">
+      <span>
+        <target id="w_8"/>
+      </span>
+    </term>
+    <term lemma="cultureel" morphofeat="adj" pos="G" id="t_9" type="open">
+      <span>
+        <target id="w_9"/>
+      </span>
+    </term>
+    <term lemma="regio" morphofeat="nounpl" pos="N" id="t_10" type="open">
+      <span>
+        <target id="w_10"/>
+      </span>
+    </term>
+    <term lemma="." morphofeat="$." pos="O" id="t_11" type="open">
+      <span>
+        <target id="w_11"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_12" type="close">
+      <span>
+        <target id="w_12"/>
+      </span>
+    </term>
+    <term lemma="term" morphofeat="nounsg" pos="N" id="t_13" type="open">
+      <span>
+        <target id="w_13"/>
+      </span>
+    </term>
+    <term lemma="&quot;" morphofeat="punc" pos="O" id="t_14" type="open">
+      <span>
+        <target id="w_14"/>
+      </span>
+    </term>
+    <term lemma="filosofie" morphofeat="nounsg" pos="N" id="t_15" type="open">
+      <span>
+        <target id="w_15"/>
+      </span>
+    </term>
+    <term lemma="&quot;" morphofeat="punc" pos="O" id="t_16" type="open">
+      <span>
+        <target id="w_16"/>
+      </span>
+    </term>
+    <term lemma="in" morphofeat="prep" pos="P" id="t_17" type="close">
+      <span>
+        <target id="w_17"/>
+      </span>
+    </term>
+    <term lemma="een" morphofeat="det__art" pos="D" id="t_18" type="close">
+      <span>
+        <target id="w_18"/>
+      </span>
+    </term>
+    <term lemma="Europees" morphofeat="adj" pos="G" id="t_19" type="open">
+      <span>
+        <target id="w_19"/>
+      </span>
+    </term>
+    <term lemma="of" morphofeat="conjcoord" pos="C" id="t_20" type="close">
+      <span>
+        <target id="w_20"/>
+      </span>
+    </term>
+    <term lemma="Amerikaans" morphofeat="adj" pos="G" id="t_21" type="open">
+      <span>
+        <target id="w_21"/>
+      </span>
+    </term>
+    <term lemma="academisch" morphofeat="adj" pos="G" id="t_22" type="open">
+      <span>
+        <target id="w_22"/>
+      </span>
+    </term>
+    <term lemma="context" morphofeat="nounsg" pos="N" id="t_23" type="open">
+      <span>
+        <target id="w_23"/>
+      </span>
+    </term>
+    <term lemma="refereren" morphofeat="verbpressg" pos="V" id="t_24" type="open">
+      <span>
+        <target id="w_24"/>
+      </span>
+    </term>
+    <term lemma="in" morphofeat="prep" pos="P" id="t_25" type="close">
+      <span>
+        <target id="w_25"/>
+      </span>
+    </term>
+    <term lemma="het" morphofeat="det__art" pos="D" id="t_26" type="close">
+      <span>
+        <target id="w_26"/>
+      </span>
+    </term>
+    <term lemma="algemeen" morphofeat="nounsg" pos="N" id="t_27" type="open">
+      <span>
+        <target id="w_27"/>
+      </span>
+    </term>
+    <term lemma="aan" morphofeat="prep" pos="P" id="t_28" type="close">
+      <span>
+        <target id="w_28"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_29" type="close">
+      <span>
+        <target id="w_29"/>
+      </span>
+    </term>
+    <term lemma="filosofisch" morphofeat="adj" pos="G" id="t_30" type="open">
+      <span>
+        <target id="w_30"/>
+      </span>
+    </term>
+    <term lemma="traditie" morphofeat="nounpl" pos="N" id="t_31" type="open">
+      <span>
+        <target id="w_31"/>
+      </span>
+    </term>
+    <term lemma="van" morphofeat="prep" pos="P" id="t_32" type="close">
+      <span>
+        <target id="w_32"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_33" type="close">
+      <span>
+        <target id="w_33"/>
+      </span>
+    </term>
+    <term lemma="westers" morphofeat="adj" pos="G" id="t_34" type="open">
+      <span>
+        <target id="w_34"/>
+      </span>
+    </term>
+    <term lemma="beschaving" morphofeat="nounsg" pos="N" id="t_35" type="open">
+      <span>
+        <target id="w_35"/>
+      </span>
+    </term>
+    <term lemma="," morphofeat="punc" pos="O" id="t_36" type="open">
+      <span>
+        <target id="w_36"/>
+      </span>
+    </term>
+    <term lemma="soms" morphofeat="adv" pos="A" id="t_37" type="open">
+      <span>
+        <target id="w_37"/>
+      </span>
+    </term>
+    <term lemma="ook" morphofeat="adv" pos="A" id="t_38" type="open">
+      <span>
+        <target id="w_38"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_39" type="close">
+      <span>
+        <target id="w_39"/>
+      </span>
+    </term>
+    <term lemma="westers" morphofeat="adj" pos="G" id="t_40" type="open">
+      <span>
+        <target id="w_40"/>
+      </span>
+    </term>
+    <term lemma="filosofie" morphofeat="nounsg" pos="N" id="t_41" type="open">
+      <span>
+        <target id="w_41"/>
+      </span>
+    </term>
+    <term lemma="noemen" morphofeat="verbpapa" pos="V" id="t_42" type="open">
+      <span>
+        <target id="w_42"/>
+      </span>
+    </term>
+    <term lemma="." morphofeat="$." pos="O" id="t_43" type="open">
+      <span>
+        <target id="w_43"/>
+      </span>
+    </term>
+    <term lemma="in" morphofeat="prep" pos="P" id="t_44" type="close">
+      <span>
+        <target id="w_44"/>
+      </span>
+    </term>
+    <term lemma="het" morphofeat="det__art" pos="D" id="t_45" type="close">
+      <span>
+        <target id="w_45"/>
+      </span>
+    </term>
+    <term lemma="westen" morphofeat="nounsg" pos="N" id="t_46" type="open">
+      <span>
+        <target id="w_46"/>
+      </span>
+    </term>
+    <term lemma="worden" morphofeat="verbpressg" pos="V" id="t_47" type="open">
+      <span>
+        <target id="w_47"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_48" type="close">
+      <span>
+        <target id="w_48"/>
+      </span>
+    </term>
+    <term lemma="term" morphofeat="nounsg" pos="N" id="t_49" type="open">
+      <span>
+        <target id="w_49"/>
+      </span>
+    </term>
+    <term lemma="oosters" morphofeat="adj" pos="G" id="t_50" type="open">
+      <span>
+        <target id="w_50"/>
+      </span>
+    </term>
+    <term lemma="filosofie" morphofeat="nounsg" pos="N" id="t_51" type="open">
+      <span>
+        <target id="w_51"/>
+      </span>
+    </term>
+    <term lemma="meestal" morphofeat="adv" pos="A" id="t_52" type="open">
+      <span>
+        <target id="w_52"/>
+      </span>
+    </term>
+    <term lemma="gebruiken" morphofeat="verbpapa" pos="V" id="t_53" type="open">
+      <span>
+        <target id="w_53"/>
+      </span>
+    </term>
+    <term lemma="als" morphofeat="conjsubo" pos="C" id="t_54" type="close">
+      <span>
+        <target id="w_54"/>
+      </span>
+    </term>
+    <term lemma="omvatten" morphofeat="verbpresp" pos="V" id="t_55" type="open">
+      <span>
+        <target id="w_55"/>
+      </span>
+    </term>
+    <term lemma="term" morphofeat="nounsg" pos="N" id="t_56" type="open">
+      <span>
+        <target id="w_56"/>
+      </span>
+    </term>
+    <term lemma="om" morphofeat="prep" pos="P" id="t_57" type="close">
+      <span>
+        <target id="w_57"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_58" type="close">
+      <span>
+        <target id="w_58"/>
+      </span>
+    </term>
+    <term lemma="filosofisch" morphofeat="adj" pos="G" id="t_59" type="open">
+      <span>
+        <target id="w_59"/>
+      </span>
+    </term>
+    <term lemma="traditie" morphofeat="nounpl" pos="N" id="t_60" type="open">
+      <span>
+        <target id="w_60"/>
+      </span>
+    </term>
+    <term lemma="van" morphofeat="prep" pos="P" id="t_61" type="close">
+      <span>
+        <target id="w_61"/>
+      </span>
+    </term>
+    <term lemma="Azië" morphofeat="nounprop" pos="R" id="t_62" type="open">
+      <span>
+        <target id="w_62"/>
+      </span>
+    </term>
+    <term lemma="en" morphofeat="conjcoord" pos="C" id="t_63" type="close">
+      <span>
+        <target id="w_63"/>
+      </span>
+    </term>
+    <term lemma="het" morphofeat="det__art" pos="D" id="t_64" type="close">
+      <span>
+        <target id="w_64"/>
+      </span>
+    </term>
+    <term lemma="oosten" morphofeat="nounsg" pos="N" id="t_65" type="open">
+      <span>
+        <target id="w_65"/>
+      </span>
+    </term>
+    <term lemma="aan" morphofeat="adv" pos="A" id="t_66" type="open">
+      <span>
+        <target id="w_66"/>
+      </span>
+    </term>
+    <term lemma="te" morphofeat="partte" pos="O" id="t_67" type="open">
+      <span>
+        <target id="w_67"/>
+      </span>
+    </term>
+    <term lemma="duiden" morphofeat="verbinf" pos="V" id="t_68" type="open">
+      <span>
+        <target id="w_68"/>
+      </span>
+    </term>
+    <term lemma="." morphofeat="$." pos="O" id="t_69" type="open">
+      <span>
+        <target id="w_69"/>
+      </span>
+    </term>
+    <term lemma="hieronder" morphofeat="pronadv" pos="Q" id="t_70" type="close">
+      <span>
+        <target id="w_70"/>
+      </span>
+    </term>
+    <term lemma="vallen" morphofeat="verbpressg" pos="V" id="t_71" type="open">
+      <span>
+        <target id="w_71"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_72" type="close">
+      <span>
+        <target id="w_72"/>
+      </span>
+    </term>
+    <term lemma="filosofie" morphofeat="nounsg" pos="N" id="t_73" type="open">
+      <span>
+        <target id="w_73"/>
+      </span>
+    </term>
+    <term lemma="die" morphofeat="pronrel" pos="Q" id="t_74" type="close">
+      <span>
+        <target id="w_74"/>
+      </span>
+    </term>
+    <term lemma="afkomstig" morphofeat="adj" pos="G" id="t_75" type="open">
+      <span>
+        <target id="w_75"/>
+      </span>
+    </term>
+    <term lemma="zijn" morphofeat="verbpressg" pos="V" id="t_76" type="open">
+      <span>
+        <target id="w_76"/>
+      </span>
+    </term>
+    <term lemma="uit" morphofeat="prep" pos="P" id="t_77" type="close">
+      <span>
+        <target id="w_77"/>
+      </span>
+    </term>
+    <term lemma="India" morphofeat="nounprop" pos="R" id="t_78" type="open">
+      <span>
+        <target id="w_78"/>
+      </span>
+    </term>
+    <term lemma="en" morphofeat="conjcoord" pos="C" id="t_79" type="close">
+      <span>
+        <target id="w_79"/>
+      </span>
+    </term>
+    <term lemma="China" morphofeat="nounprop" pos="R" id="t_80" type="open">
+      <span>
+        <target id="w_80"/>
+      </span>
+    </term>
+    <term lemma="." morphofeat="$." pos="O" id="t_81" type="open">
+      <span>
+        <target id="w_81"/>
+      </span>
+    </term>
+    <term lemma="het" morphofeat="det__art" pos="D" id="t_82" type="close">
+      <span>
+        <target id="w_82"/>
+      </span>
+    </term>
+    <term lemma="artikel" morphofeat="nounsg" pos="N" id="t_83" type="open">
+      <span>
+        <target id="w_83"/>
+      </span>
+    </term>
+    <term lemma="geschiedenis" morphofeat="nounsg" pos="N" id="t_84" type="open">
+      <span>
+        <target id="w_84"/>
+      </span>
+    </term>
+    <term lemma="van" morphofeat="prep" pos="P" id="t_85" type="close">
+      <span>
+        <target id="w_85"/>
+      </span>
+    </term>
+    <term lemma="de" morphofeat="det__art" pos="D" id="t_86" type="close">
+      <span>
+        <target id="w_86"/>
+      </span>
+    </term>
+    <term lemma="filosofie" morphofeat="nounsg" pos="N" id="t_87" type="open">
+      <span>
+        <target id="w_87"/>
+      </span>
+    </term>
+    <term lemma="bieden" morphofeat="verbpressg" pos="V" id="t_88" type="open">
+      <span>
+        <target id="w_88"/>
+      </span>
+    </term>
+    <term lemma="een" morphofeat="det__art" pos="D" id="t_89" type="close">
+      <span>
+        <target id="w_89"/>
+      </span>
+    </term>
+    <term lemma="historisch" morphofeat="adj" pos="G" id="t_90" type="open">
+      <span>
+        <target id="w_90"/>
+      </span>
+    </term>
+    <term lemma="overzicht" morphofeat="nounsg" pos="N" id="t_91" type="open">
+      <span>
+        <target id="w_91"/>
+      </span>
+    </term>
+    <term lemma="van" morphofeat="prep" pos="P" id="t_92" type="close">
+      <span>
+        <target id="w_92"/>
+      </span>
+    </term>
+    <term lemma="filosofisch" morphofeat="adj" pos="G" id="t_93" type="open">
+      <span>
+        <target id="w_93"/>
+      </span>
+    </term>
+    <term lemma="traditie" morphofeat="nounpl" pos="N" id="t_94" type="open">
+      <span>
+        <target id="w_94"/>
+      </span>
+    </term>
+    <term lemma="in" morphofeat="prep" pos="P" id="t_95" type="close">
+      <span>
+        <target id="w_95"/>
+      </span>
+    </term>
+    <term lemma="verschillend" morphofeat="adj" pos="G" id="t_96" type="open">
+      <span>
+        <target id="w_96"/>
+      </span>
+    </term>
+    <term lemma="cultuur" morphofeat="nounpl" pos="N" id="t_97" type="open">
+      <span>
+        <target id="w_97"/>
+      </span>
+    </term>
+    <term lemma="." morphofeat="$." pos="O" id="t_98" type="open">
+      <span>
+        <target id="w_98"/>
+      </span>
+    </term>
+  </terms>
+</NAF>

@@ -12,6 +12,7 @@ import sys
 import codecs
 import os
 import subprocess
+import getopt
 from collections import defaultdict
 from operator import itemgetter
 from xml.etree.ElementTree import ElementTree, Element
@@ -33,6 +34,7 @@ POS_NOUN = 'n'
 POS_VERB = 'v'
 POS_ADJ = 'a'
 MODELS_FOLDER = os.path.join(this_folder,'models')
+NAF_INPUT = 'naf'
 
 
 def loadDictionary(filename):
@@ -46,14 +48,23 @@ def loadDictionary(filename):
     fic.close()
     return dictionary 
 
-def is_noun(tt_pos):
-    return tt_pos.startswith('noun')
+def is_noun(pos,type_input):
+    if type_input == NAF_INPUT:
+        return pos in ['N','R']
+    else:
+        return pos.startswith('noun')
 
-def is_verb(tt_pos):
-    return tt_pos.startswith('verb')
+def is_verb(pos,type_input):
+     if type_input == NAF_INPUT:
+         return pos in ['V']
+     else:
+         return pos.startswith('verb')
 
-def is_adj(tt_pos):
-    return tt_pos.startswith('adj')
+def is_adj(pos,type_input):
+    if type_input == NAF_INPUT:
+        return pos in ['G']
+    else:
+        return pos.startswith('adj')
 
 #Input is unicode text
 def treetagger(text):
@@ -173,13 +184,43 @@ def generate_xml_semcor(tokens,final_results):
 if __name__ == '__main__':
     if sys.stdin.isatty():
         print>>sys.stderr,'Error. Usage:'
-        print>>sys.stderr,'\tcat file | ',sys.argv[0]
+        print>>sys.stderr,'\tcat file | ',sys.argv[0],' --naf (optional: input is NAF, also output)'
         print>>sys.stderr,'\techo "This is my text" |',sys.argv[0]
         sys.exit(-1)
         
+    type_input = 'plain'
+    try:
+        opts, args = getopt.getopt(sys.argv[1:],'',['naf'])
+        for opt,value in opts:
+            if opt == '--naf':
+                type_input = NAF_INPUT
+    except getopt.GetoptError, e:
+        print>>sys.stderr,'Warning!!!',str(e)+'. Ignored'
+        
+    print>>sys.stderr,'Type of input/output:',type_input
+            
     dictionary = loadDictionary(os.path.join(MODELS_FOLDER,'dictionary'))
-    input_text = sys.stdin.read().decode('utf-8','ignore')
-    tokens = treetagger(input_text)     # List of (token_id, token,pos,lemma,num_sent)
+    tokens = []
+    if type_input==NAF_INPUT:
+        
+        from NafParserPy import NafParser
+        naf_obj = NafParser(sys.stdin)
+        lemma_pos_for_tokid = {}
+        for term in naf_obj.get_terms():
+            lemma = term.get_lemma()
+            pos = term.get_pos()
+            for tokid in term.get_span():
+                lemma_pos_for_tokid[tokid] = (lemma,pos)
+        
+        for token in naf_obj.get_tokens():
+            tokenid = token.get_id()
+            tokval = token.get_text()
+            sent = token.get_sent()
+            lemma,pos = lemma_pos_for_tokid[tokenid]
+            tokens.append((tokenid,tokval,pos,lemma,sent))
+    else:
+        input_text = sys.stdin.read().decode('utf-8','ignore')
+        tokens = treetagger(input_text)     # List of (token_id, token,pos,lemma,num_sent)
     
     
     ## Extracting features for each token
@@ -196,9 +237,9 @@ if __name__ == '__main__':
     all_senses = set()
     for token_id, _, pos, lemma, _ in tokens:
         possible_senses = None
-        if is_noun(pos): possible_senses = dictionary.get((lemma,POS_NOUN),None)
-        elif is_verb(pos): possible_senses = dictionary.get((lemma,POS_VERB),None)
-        elif is_adj(pos): possible_senses = dictionary.get((lemma,POS_ADJ),None)
+        if is_noun(pos,type_input): possible_senses = dictionary.get((lemma,POS_NOUN),None)
+        elif is_verb(pos,type_input): possible_senses = dictionary.get((lemma,POS_VERB),None)
+        elif is_adj(pos,type_input): possible_senses = dictionary.get((lemma,POS_ADJ),None)
 
                     
         if possible_senses is not None:
@@ -211,9 +252,9 @@ if __name__ == '__main__':
     results_for_tokenid = defaultdict(list)
     for sense in all_senses:
         my_pos = pos_for_sense[sense]
-        if is_noun(my_pos): pos_folder = 'nouns'
-        elif is_verb(my_pos): pos_folder = 'verbs'
-        elif is_adj(my_pos): pos_folder = 'adjs'
+        if is_noun(my_pos,type_input): pos_folder = 'nouns'
+        elif is_verb(my_pos,type_input): pos_folder = 'verbs'
+        elif is_adj(my_pos,type_input): pos_folder = 'adjs'
         
         featurefile = os.path.join(MODELS_FOLDER,pos_folder,sense+'.filterFeatures')
         modelfile =   os.path.join(MODELS_FOLDER,pos_folder,sense+'.model')
