@@ -201,22 +201,30 @@ if __name__ == '__main__':
             
     dictionary = loadDictionary(os.path.join(MODELS_FOLDER,'dictionary'))
     tokens = []
+    naf_obj = None
+    lemma_pos_lemmaid_for_tokid = {}
     if type_input==NAF_INPUT:
-        
-        from NafParserPy import NafParser
+        try:
+            from NafParserPy import *
+        except:
+            from lib.NafParserPy import *
+            
         naf_obj = NafParser(sys.stdin)
-        lemma_pos_for_tokid = {}
         for term in naf_obj.get_terms():
+            lemmaid = term.get_id()
             lemma = term.get_lemma()
             pos = term.get_pos()
-            for tokid in term.get_span():
-                lemma_pos_for_tokid[tokid] = (lemma,pos)
+            span = term.get_span()
+            for target_obj in span:
+                token_id = target_obj.get_id()
+                lemma_pos_lemmaid_for_tokid[token_id] = (lemma,pos,lemmaid)
+                
         
         for token in naf_obj.get_tokens():
             tokenid = token.get_id()
             tokval = token.get_text()
             sent = token.get_sent()
-            lemma,pos = lemma_pos_for_tokid[tokenid]
+            lemma,pos,_ = lemma_pos_lemmaid_for_tokid[tokenid]
             tokens.append((tokenid,tokval,pos,lemma,sent))
     else:
         input_text = sys.stdin.read().decode('utf-8','ignore')
@@ -280,14 +288,26 @@ if __name__ == '__main__':
                     results_for_tokenid[token_id].append((sense,probability_for_positive))
     ######
     # Resolve and assign the most possible
-    final_results = {}
-    for token_id, _, _, _, _ in tokens:
-        r = results_for_tokenid.get(token_id,None)
-        if r is not None:
-            best_sense_and_probability = resolve_list(r)
-            final_results[token_id] = best_sense_and_probability
-    #############
-      
-    generate_xml_semcor(tokens,final_results)
+    if type_input==NAF_INPUT:
+        for token_id,_,_,_,_ in tokens:            
+            r = results_for_tokenid.get(token_id,None)
+            if r is not None:
+                lemma,pos,lemma_id = lemma_pos_lemmaid_for_tokid[token_id]
+                for (sense_id,prob) in r:
+                    ext_ref = externalReference(None)
+                    ext_ref.set_resource('Cornetto')
+                    ext_ref.set_reference(sense_id)
+                    ext_ref.set_confidence(str(prob))
+                    naf_obj.add_external_reference(lemma_id,ext_ref)
+        naf_obj.dump()
+    else:
+        final_results = {}
+        for token_id, _, _, _, _ in tokens:
+            r = results_for_tokenid.get(token_id,None)
+            if r is not None:
+                best_sense_and_probability = resolve_list(r)
+                final_results[token_id] = best_sense_and_probability     
+        generate_xml_semcor(tokens,final_results)
+    ################
 
     sys.exit(0)

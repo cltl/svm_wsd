@@ -37,6 +37,8 @@ Machines. We use a bag-of-words model for representing the features. It has been
 some dependencies that will be automatically downloaded and installed by the script install.sh
 - libsvm: library implementing a SVM engine (https://github.com/cjlin1/libsvm)
 - treetagger: part-of-speech and lemmatizer (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger)
+OR
+- NafParserPy: parser of NAF files in python (https://github.com/cltl/NafParserPy)
 - models_DSC: models trained on the DutchSemCor project for WSD
 
 To install this program you have to follow 2 steps:
