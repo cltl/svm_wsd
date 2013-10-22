@@ -43,14 +43,17 @@ OR
 
 To install this program you have to follow 2 steps:
 - 1) Download/clone this repository
-- 2) Go the folder and run the install.sh script, which will install libsvm, treetagger and the models for WSD.
+- 2) Go to the folder and run the install.sh script, which will install libsvm, treetagger and the models for WSD.
+or
+- 2) Go to the folder and run the install_naf.sh script to work with NAF files (not treetagger)
 
 In summary:
 
 ````shell
 $ git clone git@github.com:cltl/svm_wsd.git
 $ cd svm_wsd
-$ . install.sh
+$ . install.sh OR . install_naf.sh
+
 ````
 
 Usage
@@ -58,6 +61,8 @@ Usage
 
 The input for the program has to be valid UTF-8 plain text. The script dsc_wsd_tagger.py will read the text from the standard
 input. So there are 2 easy ways to call the program:
+
+For working with plain files and call treetagger for lemma and pos tagging:
 
 ````shell
 $ echo 'Dit is een input text' | dsc_wsd_tagger.py
@@ -79,5 +84,13 @@ The output will be an XML file with a structure similar to the one used by the S
 ````
 
 The attributes sense_confidence and sense_label are only present when the token is disambiguated.
+
+For working with NAF files:
+````shell
+$ cat input.naf | dsc_wsd_tagger.py --naf > output.naf
+````
+
+The output is the NAF extended with the senses and confidences, represented as external references on the term--> externalReferences element. 
+The ranking of all the senses with the returned confidence value according to SVM are included on the output.
 
 
