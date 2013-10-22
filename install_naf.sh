@@ -27,7 +27,9 @@ unzip master.zip
 rm master.zip
 mv NafParserPy-master/NafParserPy .
 rm -rf NafParserPy-master
-echo 'pass' > __init__.py
+echo 'pass' > __init__.py  #Required to convert the lib subfolder in a python module and do: from lib.NafParserPy import *
+echo 'Done installation of NafParserPy'
+cd ..
 
 echo 'Downloading models...(could take a while)'
 wget --user=cltl --password='.cltl.' kyoto.let.vu.nl/~izquierdo/models_wsd_svm_dsc.tgz 2> /dev/null
