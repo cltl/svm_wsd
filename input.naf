@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <NAF xml:lang="nl">
-  <kafHeader>
+  <nafHeader>
     <linguisticProcessors layer="text">
       <lp name="TreeTagger" timestamp="2013-10-21T16:57:56CEST" version="1.0"/>
     </linguisticProcessors>
     <linguisticProcessors layer="terms">
       <lp name="TreeTagger" timestamp="2013-10-21T16:57:56CEST" version="1.0"/>
     </linguisticProcessors>
-  </kafHeader>
+  </nafHeader>
   <text>
     <wf para="1" sent="1" id="w_1">Filosofie</wf>
     <wf para="1" sent="1" id="w_2">kan</wf>

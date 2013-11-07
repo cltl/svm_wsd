@@ -299,6 +299,13 @@ if __name__ == '__main__':
                     ext_ref.set_reference(sense_id)
                     ext_ref.set_confidence(str(prob))
                     naf_obj.add_external_reference(lemma_id,ext_ref)
+                    
+        ## Include the linguistic processor
+        my_lp = lp()
+        my_lp.set_name('VUA-DSC-WSD')
+        my_lp.set_version('1.0')
+        my_lp.set_timestamp()   ##Set to the current date and time
+        naf_obj.add_linguistic_processor('terms',my_lp)
         naf_obj.dump()
     else:
         final_results = {}
