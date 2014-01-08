@@ -204,12 +204,9 @@ if __name__ == '__main__':
     naf_obj = None
     lemma_pos_lemmaid_for_tokid = {}
     if type_input==NAF_INPUT:
-        try:
-            from NafParserPy import *
-        except:
-            from lib.NafParserPy import *
+        from KafNafParserPy import *
             
-        naf_obj = NafParser(sys.stdin)
+        naf_obj = KafNafParser(sys.stdin)
         for term in naf_obj.get_terms():
             lemmaid = term.get_id()
             lemma = term.get_lemma()

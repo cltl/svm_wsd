@@ -22,9 +22,9 @@ echo LIBSVM installed correctly lib/libsvm
 
 
 cd ../../ ##On the lib folder
-git clone git@github.com:cltl/NafParserPy.git NafParserPyRep
-mv NafParserPyRep/NafParserPy .
-rm -rf NafParserPyRep
+git clone https://github.com/cltl/KafNafParserPy.git KafNafParserPyRep
+mv KafNafParserPyRep/KafNafParserPy .
+rm -rf KafNafParserPyRep
 echo 'pass' > __init__.py  #Required to convert the lib subfolder in a python module and do: from lib.NafParserPy import *
 echo 'Done installation of NafParserPy'
 cd ..
