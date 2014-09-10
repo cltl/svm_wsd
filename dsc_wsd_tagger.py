@@ -29,7 +29,7 @@ from svmutil import *
 
 
 
-TREETAGGER=os.path.join(this_folder,'lib','treetagger')
+TREETAGGER='/home/ruben/TreeTagger'
 POS_NOUN = 'n'
 POS_VERB = 'v'
 POS_ADJ = 'a'
@@ -50,19 +50,20 @@ def loadDictionary(filename):
 
 def is_noun(pos,type_input):
     if type_input == NAF_INPUT:
-        return pos in ['N','R']
+        return (pos in ['N','R']) or (pos[0] == 'N')
     else:
         return pos.startswith('noun')
 
 def is_verb(pos,type_input):
      if type_input == NAF_INPUT:
-         return pos in ['V']
+         return (pos in ['V']) or (pos[0] == 'V')
      else:
          return pos.startswith('verb')
 
 def is_adj(pos,type_input):
     if type_input == NAF_INPUT:
-        return pos in ['G']
+        return (pos in ['G']) or  (pos[0] == 'G')
+        
     else:
         return pos.startswith('adj')
 
@@ -221,7 +222,11 @@ if __name__ == '__main__':
             tokenid = token.get_id()
             tokval = token.get_text()
             sent = token.get_sent()
-            lemma,pos,_ = lemma_pos_lemmaid_for_tokid[tokenid]
+            if tokenid in lemma_pos_lemmaid_for_tokid:
+                lemma,pos,_ = lemma_pos_lemmaid_for_tokid[tokenid]
+            else:
+                lemma = tokval
+                pos = 'U'
             tokens.append((tokenid,tokval,pos,lemma,sent))
     else:
         input_text = sys.stdin.read().decode('utf-8','ignore')
