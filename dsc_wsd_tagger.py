@@ -28,7 +28,8 @@ from svmutil import *
 ###########################
 
 
-
+__version = '1.1'
+__modified = '15sept2014'
 TREETAGGER='/home/ruben/TreeTagger'
 POS_NOUN = 'n'
 POS_VERB = 'v'
@@ -288,6 +289,15 @@ if __name__ == '__main__':
                     predicted_label,_,predicted_values = svm_predict([0],[encodedFeatures],model,"-b 1 -q")
                     probability_for_positive = predicted_values[0][0]
                     results_for_tokenid[token_id].append((sense,probability_for_positive))
+
+    ## We add those senses for which there is no classifier, with confidence 0 
+    for token_id, token,pos,lemma,num_sentence in tokens:
+        possible_senses = senses_for_tokenid.get(token_id,[])
+        there_is_score_for_these_senses = [sense for (sense,confidence) in results_for_tokenid.get(token_id,[])]
+        
+        for sense in possible_senses:
+            if sense not in there_is_score_for_these_senses:
+                results_for_tokenid[token_id].append((sense,0))
     ######
     # Resolve and assign the most possible
     if type_input==NAF_INPUT:
@@ -305,7 +315,7 @@ if __name__ == '__main__':
         ## Include the linguistic processor
         my_lp = Clp()
         my_lp.set_name('VUA-DSC-WSD')
-        my_lp.set_version('8nov2013_v1.0')
+        my_lp.set_version(__version+'#'+__modified)
         my_lp.set_timestamp()   ##Set to the current date and time
         naf_obj.add_linguistic_processor('terms',my_lp)
         naf_obj.dump()
