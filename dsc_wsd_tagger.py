@@ -17,7 +17,6 @@ from collections import defaultdict
 from operator import itemgetter
 from xml.etree.ElementTree import ElementTree, Element
 
-
 ## Code for seting the paths for the local installation of 
 
 #Code for importing svmutil
@@ -51,19 +50,19 @@ def loadDictionary(filename):
 
 def is_noun(pos,type_input):
     if type_input == NAF_INPUT:
-        return (pos in ['N','R']) or (pos[0] == 'N')
+        return (pos in ['N','R','noun']) or (pos[0] == 'N')
     else:
         return pos.startswith('noun')
 
 def is_verb(pos,type_input):
      if type_input == NAF_INPUT:
-         return (pos in ['V']) or (pos[0] == 'V')
+         return (pos in ['V','verb']) or (pos[0] == 'V')
      else:
          return pos.startswith('verb')
 
 def is_adj(pos,type_input):
     if type_input == NAF_INPUT:
-        return (pos in ['G']) or  (pos[0] == 'G')
+        return (pos in ['G','adj']) or  (pos[0] == 'G')
         
     else:
         return pos.startswith('adj')
