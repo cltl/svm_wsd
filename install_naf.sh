@@ -2,8 +2,8 @@
 
 ############################################################
 # Author:   Ruben Izquierdo Bevia ruben.izquierdobevia@vu.nl
-# Version:  1.0
-# Date:     16 Sep 2013
+# Version:  1.1
+# Date:     3 Nov 2013
 #############################################################
 
 
@@ -21,13 +21,9 @@ make > /dev/null 2> /dev/null
 echo LIBSVM installed correctly lib/libsvm
 
 
-cd ../../ ##On the lib folder
-git clone https://github.com/cltl/KafNafParserPy.git KafNafParserPyRep
-mv KafNafParserPyRep/KafNafParserPy .
-rm -rf KafNafParserPyRep
-echo 'pass' > __init__.py  #Required to convert the lib subfolder in a python module and do: from lib.NafParserPy import *
-echo 'Done installation of NafParserPy'
-cd ..
+cd ../../.. ##On the root folder
+git clone https://github.com/cltl/KafNafParserPy.git
+echo 'Done installation of KafNafParserPy'
 
 
 echo 'Downloading models...(could take a while)'
