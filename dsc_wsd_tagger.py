@@ -27,14 +27,19 @@ from svmutil import *
 ###########################
 
 
-__version = '1.1'
-__modified = '15sept2014'
+__version = '1.2'
+__modified = '20jan2015'
 TREETAGGER='/home/ruben/TreeTagger'
 POS_NOUN = 'n'
 POS_VERB = 'v'
 POS_ADJ = 'a'
 MODELS_FOLDER = os.path.join(this_folder,'models')
 NAF_INPUT = 'naf'
+
+######## CHANGES ###########
+# 1.2 --> included hack to convert things like op_slaan into opslaan
+#
+##########################
 
 
 def loadDictionary(filename):
