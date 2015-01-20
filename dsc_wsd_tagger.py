@@ -2,8 +2,8 @@
 
 ############################################################
 # Author:   Ruben Izquierdo Bevia ruben.izquierdobevia@vu.nl       
-# Version:  1.1
-# Date:     15 Sep 2014
+# Version:  1.2
+# Date:     20 Jan 2014
 #############################################################
 
 
