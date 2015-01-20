@@ -212,6 +212,8 @@ if __name__ == '__main__':
             lemmaid = term.get_id()
             lemma = term.get_lemma()
             pos = term.get_pos()
+            if is_verb(pos,type_input) and '_' in lemma:	#convert op_slaan into opslaan
+                lemma = lemma.replace('_','')
             span = term.get_span()
             for target_obj in span:
                 token_id = target_obj.get_id()
