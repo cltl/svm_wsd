@@ -93,4 +93,11 @@ $ cat input.naf | dsc_wsd_tagger.py --naf > output.naf
 The output is the NAF extended with the senses and confidences, represented as external references on the term--> externalReferences element. 
 The ranking of all the senses with the returned confidence value according to SVM are included on the output.
 
+Contact
+------
+
+* Ruben Izquierdo Bevia
+* ruben.izquierdobevia@vu.nl
+* http://rubenizquierdobevia.com/
+* Vrije University of Amsterdam
 
