@@ -12,7 +12,7 @@ import sys
 import codecs
 import os
 import subprocess
-import getopt
+import argparse
 from collections import defaultdict
 from operator import itemgetter
 from xml.etree.ElementTree import ElementTree, Element
@@ -49,7 +49,12 @@ def loadDictionary(filename):
       fields = line.strip().split()
       lemma = fields[0]
       pos = fields[1]
-      dictionary[(lemma,pos)]=set(fields[2:])
+      num_senses = (len(fields)-2)/3
+      idx = 2
+      dictionary[(lemma,pos)] = []
+      for n in xrange(num_senses):
+          dictionary[(lemma,pos)].append((fields[idx],fields[idx+1], fields[idx+2]))
+          idx+=3          
     fic.close()
     return dictionary 
 
@@ -188,22 +193,28 @@ def generate_xml_semcor(tokens,final_results):
 
 
 if __name__ == '__main__':
+    
+    argument_parser = argparse.ArgumentParser(description='WSD system for Dutch text trained with SVM on the DutchSemCor data', version='1.0')
+    argument_parser.add_argument('--naf',dest='use_naf', action='store_true', help='Input is a NAF file')
+    argument_parser.add_argument('-ref', dest='ref_type', default='odwnSY', choices=['corLU', 'odwnLU', 'odwnSY'], help='Type of reference to use, cornetto Lexical unit, OpenDutchWorndet LU or ODWN synset')
+    
+                                 
     if sys.stdin.isatty():
         print>>sys.stderr,'Error. Usage:'
-        print>>sys.stderr,'\tcat file | ',sys.argv[0],' --naf (optional: input is NAF, also output)'
-        print>>sys.stderr,'\techo "This is my text" |',sys.argv[0]
+        print>>sys.stderr,'\tcat file | ',sys.argv[0],' OPTS'
+        print>>sys.stderr,'\techo "This is my text" |',sys.argv[0], 'OPTS'
+        print>>sys.stderr
+        argument_parser.print_help(sys.stderr)
         sys.exit(-1)
-        
+    
+    args = argument_parser.parse_args()
+    
     type_input = 'plain'
-    try:
-        opts, args = getopt.getopt(sys.argv[1:],'',['naf'])
-        for opt,value in opts:
-            if opt == '--naf':
-                type_input = NAF_INPUT
-    except getopt.GetoptError, e:
-        print>>sys.stderr,'Warning!!!',str(e)+'. Ignored'
+    if args.use_naf:
+        type_input = NAF_INPUT
+    
         
-    print>>sys.stderr,'Type of input/output:',type_input
+    #print>>sys.stderr,'Type of input/output:',type_input
             
     dictionary = loadDictionary(os.path.join(MODELS_FOLDER,'dictionary'))
     tokens = []
@@ -260,9 +271,12 @@ if __name__ == '__main__':
 
                     
         if possible_senses is not None:
-            for sense in possible_senses:  pos_for_sense[sense] = pos
-            senses_for_tokenid[token_id] = possible_senses
-            all_senses = all_senses | possible_senses
+            these_senses = set()
+            for sense, odwnLU, odwnSY in possible_senses:
+                pos_for_sense[sense] = pos
+                these_senses.add(sense)
+            senses_for_tokenid[token_id] = these_senses
+            all_senses = all_senses | these_senses
     #########################################
     
     ## Tag using each classifier
@@ -306,17 +320,53 @@ if __name__ == '__main__':
                 results_for_tokenid[token_id].append((sense,0))
     ######
     # Resolve and assign the most possible
-    if type_input==NAF_INPUT:
+    if type_input == NAF_INPUT:
         for token_id,_,_,_,_ in tokens:            
             r = results_for_tokenid.get(token_id,None)
             if r is not None:
                 lemma,pos,lemma_id = lemma_pos_lemmaid_for_tokid[token_id]
+                
+                list_of_senses = None
+                if is_noun(pos,type_input): list_of_senses = dictionary.get((lemma,POS_NOUN),None)
+                elif is_verb(pos,type_input): list_of_senses = dictionary.get((lemma,POS_VERB),None)
+                elif is_adj(pos,type_input): list_of_senses = dictionary.get((lemma,POS_ADJ),None)
+
                 for (sense_id,prob) in r:
-                    ext_ref = CexternalReference(None)
-                    ext_ref.set_resource('Cornetto')
-                    ext_ref.set_reference(sense_id)
-                    ext_ref.set_confidence(str(prob))
-                    naf_obj.add_external_reference(lemma_id,ext_ref)
+                    
+                    if args.ref_type == 'corLU':
+                        ext_ref = CexternalReference(None)
+                        ext_ref.set_resource('Cornetto')
+                        ext_ref.set_reftype('LexicalUnit')
+                        ext_ref.set_reference(sense_id)
+                        ext_ref.set_confidence(str(prob))
+                        naf_obj.add_external_reference(lemma_id,ext_ref)
+                    
+                    elif args.ref_type in ['odwnLU','odwnSY']:
+                        odwn_lu = None
+                        odwn_sy = None
+                        for this_sense,this_odwn_lu, this_odwn_sy in list_of_senses:
+                            if this_sense == sense_id:
+                                odwn_sy = this_odwn_sy
+                                odwn_lu = this_odwn_lu
+                            break
+                        
+                        ext_ref = CexternalReference(None)
+                        ext_ref.set_resource('ODWN')
+                        if args.ref_type == 'odwnLU':
+                            ext_ref.set_reftype('LexicalUnit')
+                            ext_ref.set_reference(str(odwn_lu))
+                            if odwn_lu == 'None': is_none=True
+                        elif args.ref_type == 'odwnSY':
+                            ext_ref.set_reftype('Synset')
+                            ext_ref.set_reference(str(odwn_sy))
+                            
+                        ext_ref.set_reference(str(odwn_lu))
+                        ext_ref.set_confidence(str(prob))  
+                        if ext_ref.get_reference() != 'None':
+                            naf_obj.add_external_reference(lemma_id,ext_ref)       
+ 
+                    
+                    
                     
         ## Include the linguistic processor
         my_lp = Clp()
