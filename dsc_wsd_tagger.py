@@ -348,19 +348,18 @@ if __name__ == '__main__':
                             if this_sense == sense_id:
                                 odwn_sy = this_odwn_sy
                                 odwn_lu = this_odwn_lu
-                            break
+                                break
+                        print>>sys.stderr, 'Sense %s odwnlu %s odwnSy %s' % (sense_id,str(odwn_lu),str(odwn_sy))
                         
                         ext_ref = CexternalReference(None)
                         ext_ref.set_resource('ODWN')
                         if args.ref_type == 'odwnLU':
                             ext_ref.set_reftype('LexicalUnit')
                             ext_ref.set_reference(str(odwn_lu))
-                            if odwn_lu == 'None': is_none=True
                         elif args.ref_type == 'odwnSY':
                             ext_ref.set_reftype('Synset')
                             ext_ref.set_reference(str(odwn_sy))
                             
-                        ext_ref.set_reference(str(odwn_lu))
                         ext_ref.set_confidence(str(prob))  
                         if ext_ref.get_reference() != 'None':
                             naf_obj.add_external_reference(lemma_id,ext_ref)       

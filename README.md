@@ -87,8 +87,13 @@ The attributes sense_confidence and sense_label are only present when the token 
 
 For working with NAF files:
 ````shell
-$ cat input.naf | dsc_wsd_tagger.py --naf > output.naf
+$ cat input.naf | dsc_wsd_tagger.py --naf -ref odwnSY> output.naf
 ````
+The parameter `ref` represents what type of reference we want to have in the output:
+
+* corLU: for cornetto lexical unit ids
+* odwnLU: OpenDutchWordNet lexical unit ids
+* odwnSY: OpenDutchWordNet synset ids.
 
 The output is the NAF extended with the senses and confidences, represented as external references on the term--> externalReferences element. 
 The ranking of all the senses with the returned confidence value according to SVM are included on the output.
