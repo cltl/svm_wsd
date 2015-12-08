@@ -349,7 +349,7 @@ if __name__ == '__main__':
                                 odwn_sy = this_odwn_sy
                                 odwn_lu = this_odwn_lu
                                 break
-                        print>>sys.stderr, 'Sense %s odwnlu %s odwnSy %s' % (sense_id,str(odwn_lu),str(odwn_sy))
+                        #print>>sys.stderr, 'Sense %s odwnlu %s odwnSy %s' % (sense_id,str(odwn_lu),str(odwn_sy))
                         
                         ext_ref = CexternalReference(None)
                         ext_ref.set_resource('ODWN')
