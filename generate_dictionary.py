@@ -59,10 +59,10 @@ def generate_dictionary(path_to_cornetto, map_cornettoluid_odwnluid, map_odwnLU_
             else:
                 luids_for_lemma_pos[(lemma,short_pos)].append(sense)
     
-    print>>sys.stderr,len(luids_for_lemma_pos)
-    print '###lemma pos cornettoLU1 odwnLU1 odwnSYNSET1 [cornettoLU2 odwnLU2 odwnSYNSET2] [... ... ...]'
-    for (lemma,short_pos), luids in luids_for_lemma_pos.items():
-        print lemma.encode('utf-8')+' '+short_pos.encode('utf-8'),
+    print(len(luids_for_lemma_pos), file=sys.stderr)
+    print('###lemma pos cornettoLU1 odwnLU1 odwnSYNSET1 [cornettoLU2 odwnLU2 odwnSYNSET2] [... ... ...]')
+    for (lemma,short_pos), luids in list(luids_for_lemma_pos.items()):
+        print(lemma+' '+short_pos.encode('utf-8'), end=' ')
         for cornettoLU in set(luids):
             #1 Map to odwn LU
             odwnLU = None
@@ -78,8 +78,8 @@ def generate_dictionary(path_to_cornetto, map_cornettoluid_odwnluid, map_odwnLU_
             odwnSY = None
             if odwnLU is not None:
                 odwnSY = odwn_lu_to_odwn_synset.get(odwnLU)
-            print cornettoLU+' '+str(odwnLU)+' '+str(odwnSY),
-        print
+            print(cornettoLU+' '+str(odwnLU)+' '+str(odwnSY), end=' ')
+        print()
             
         
         

@@ -8,6 +8,7 @@
 
 
 
+from __future__ import print_function
 import sys
 import codecs
 import os
@@ -49,10 +50,10 @@ def loadDictionary(filename):
       fields = line.strip().split()
       lemma = fields[0]
       pos = fields[1]
-      num_senses = (len(fields)-2)/3
+      num_senses = (len(fields)-2)//3
       idx = 2
       dictionary[(lemma,pos)] = []
-      for n in xrange(num_senses):
+      for n in range(num_senses):
           dictionary[(lemma,pos)].append((fields[idx],fields[idx+1], fields[idx+2]))
           idx+=3          
     fic.close()
@@ -83,15 +84,15 @@ def treetagger(text):
     global TREETAGGER
     treetagger_cmd = TREETAGGER+'/cmd/tree-tagger-dutch-utf8'
     tt_proc = subprocess.Popen(treetagger_cmd,stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    tt_out, tt_err = tt_proc.communicate(text.encode('utf-8'))
+    tt_out, tt_err = tt_proc.communicate(text)
     #print>>sys.stderr,'Output error TreeTagger:',tt_err
     num_sent = 1
     num_token = 0
     for line in tt_out.splitlines():
         
-        fields = line.decode('utf-8').split('\t')
+        fields = line.split('\t')
         if len(fields) != 3:
-            print>>sys.stderr,'Error parsing',line
+            print('Error parsing',line, file=sys.stderr)
         else:
             token_id = 'w'+str(num_token)
             token,pos,lemma = fields
@@ -194,16 +195,17 @@ def generate_xml_semcor(tokens,final_results):
 
 if __name__ == '__main__':
     
-    argument_parser = argparse.ArgumentParser(description='WSD system for Dutch text trained with SVM on the DutchSemCor data', version='1.0')
+    argument_parser = argparse.ArgumentParser(description='WSD system for Dutch text trained with SVM on the DutchSemCor data')
+    argument_parser.add_argument('--version', action='version', version='%(prog)s 1.0')
     argument_parser.add_argument('--naf',dest='use_naf', action='store_true', help='Input is a NAF file')
     argument_parser.add_argument('-ref', dest='ref_type', default='odwnSY', choices=['corLU', 'odwnLU', 'odwnSY'], help='Type of reference to use, cornetto Lexical unit, OpenDutchWorndet LU or ODWN synset')
     
                                  
     if sys.stdin.isatty():
-        print>>sys.stderr,'Error. Usage:'
-        print>>sys.stderr,'\tcat file | ',sys.argv[0],' OPTS'
-        print>>sys.stderr,'\techo "This is my text" |',sys.argv[0], 'OPTS'
-        print>>sys.stderr
+        print('Error. Usage:', file=sys.stderr)
+        print('\tcat file | ',sys.argv[0],' OPTS', file=sys.stderr)
+        print('\techo "This is my text" |',sys.argv[0], 'OPTS', file=sys.stderr)
+        print(file=sys.stderr)
         argument_parser.print_help(sys.stderr)
         sys.exit(-1)
     
@@ -253,7 +255,7 @@ if __name__ == '__main__':
     
     ## Extracting features for each token
     features_for_tokenid = {}
-    for idx in xrange(len(tokens)):
+    for idx in range(len(tokens)):
         token_id = tokens[idx][0]
         features = extract_features(idx,tokens)
         features_for_tokenid[token_id] = features
@@ -295,13 +297,13 @@ if __name__ == '__main__':
             idxForFeatures = loadIndexFeatures(featurefile)
             
             ## LOAD SVM MODEL
-            model = svm_load_model(modelfile.encode('utf-8'))            
+            model = svm_load_model(modelfile)            
             
             for token_id, token, pos, lemma, num_sentence in tokens:
                 possible_senses = senses_for_tokenid.get(token_id)
                 if possible_senses is not None and sense in possible_senses:
                     encodedFeatures = {}
-                    for feat, freq in features_for_tokenid[token_id].items():
+                    for feat, freq in list(features_for_tokenid[token_id].items()):
                         indexFeature, value = idxForFeatures.get(feat,(-1,-1))
                         if indexFeature!=-1:
                             encodedFeatures[int(indexFeature)]=value
